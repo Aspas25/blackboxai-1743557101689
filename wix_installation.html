@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalação do App no Wix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-50 font-['Inter']">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fab fa-wix text-blue-600 mr-3"></i>
+                Instalação do App no Wix
+            </h1>
+
+            <!-- Pré-requisitos -->
+            <section class="mb-8 bg-blue-50 p-6 rounded-lg">
+                <h2 class="text-xl font-semibold text-blue-800 mb-4 flex items-center">
+                    <i class="fas fa-clipboard-check mr-2"></i>
+                    Pré-requisitos
+                </h2>
+                <ul class="space-y-2 text-gray-700">
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        Conta Wix com permissões de desenvolvedor
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        Acesso ao Wix Developer Center
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        Node.js (versão 14 ou superior)
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Passos de Instalação -->
+            <div class="space-y-8">
+                <!-- Passo 1 -->
+                <section class="border border-gray-200 rounded-lg p-6">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <span class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3">1</span>
+                        Preparação do Ambiente Wix
+                    </h2>
+                    <ol class="space-y-4 ml-11">
+                        <li class="flex items-start">
+                            <span class="text-blue-600 font-semibold mr-2">1.</span>
+                            Acesse o <a href="https://dev.wix.com" class="text-blue-600 hover:underline" target="_blank">Wix Developer Center</a>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 font-semibold mr-2">2.</span>
+                            Clique em "Create New Application"
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 font-semibold mr-2">3.</span>
+                            Preencha as informações básicas:
+                            <ul class="ml-6 mt-2 space-y-2">
+                                <li class="flex items-center">
+                                    <i class="fas fa-angle-right text-gray-400 mr-2"></i>
+                                    Nome do App
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-angle-right text-gray-400 mr-2"></i>
+                                    Descrição
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-angle-right text-gray-400 mr-2"></i>
+                                    Categoria
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+
+                <!-- Passo 2 -->
+                <section class="border border-gray-200 rounded-lg p-6">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <span class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3">2</span>
+                        Configuração do App
+                    </h2>
+                    <div class="space-y-4 ml-11">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-700 mb-3">Permissões Necessárias:</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <i class="fas fa-key text-yellow-600 mr-2"></i>
+                                    Analytics.Read
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-key text-yellow-600 mr-2"></i>
+                                    Analytics.Write
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-key text-yellow-600 mr-2"></i>
+                                    Dashboard.Access
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-700 mb-3">Credenciais:</h3>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <i class="fas fa-id-card text-blue-600 mr-2"></i>
+                                    App ID
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-key text-blue-600 mr-2"></i>
+                                    App Secret Key
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Passo 3 -->
+                <section class="border border-gray-200 rounded-lg p-6">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <span class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3">3</span>
+                        Integração com Pipeline Analytics
+                    </h2>
+                    <div class="space-y-4 ml-11">
+                        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm">
+                            <p class="text-green-400"># Variáveis de Ambiente</p>
+                            <pre class="mt-2">
+PORT=8000
+NODE_ENV=production
+JWT_SECRET=seu_jwt_secret
+WIX_APP_ID=seu_app_id
+WIX_APP_SECRET=seu_app_secret</pre>
+                        </div>
+                        
+                        <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm">
+                            <p class="text-green-400"># Endpoints da API</p>
+                            <pre class="mt-2">
+/api/cards/month/:month  // Dados mensais
+/api/cards               // Todos os cards</pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Passo 4 -->
+                <section class="border border-gray-200 rounded-lg p-6">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <span class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3">4</span>
+                        Instalação no Site Wix
+                    </h2>
+                    <div class="space-y-4 ml-11">
+                        <div class="flex items-center space-x-4">
+                            <div class="flex-1 bg-gray-50 p-4 rounded-lg">
+                                <h3 class="font-semibold text-gray-700 mb-2">No Wix App Market:</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-upload text-blue-600 mr-2"></i>
+                                        Publique seu app
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-link text-blue-600 mr-2"></i>
+                                        Obtenha o link de instalação
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex-1 bg-gray-50 p-4 rounded-lg">
+                                <h3 class="font-semibold text-gray-700 mb-2">No Site de Destino:</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-edit text-blue-600 mr-2"></i>
+                                        Acesse o Editor Wix
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-plus-circle text-blue-600 mr-2"></i>
+                                        Add Apps > Seu App
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Solução de Problemas -->
+                <section class="bg-red-50 p-6 rounded-lg border border-red-200">
+                    <h2 class="text-xl font-semibold text-red-800 mb-4 flex items-center">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        Solução de Problemas
+                    </h2>
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-700 mb-2">Erro de Conexão:</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Verifique as credenciais
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Confirme permissões OAuth
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-700 mb-2">Dados não Aparecem:</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Limpe o cache
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Verifique a API
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Suporte -->
+                <section class="bg-gray-50 p-6 rounded-lg">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-headset mr-2"></i>
+                        Suporte
+                    </h2>
+                    <div class="space-y-3">
+                        <p class="flex items-center">
+                            <i class="fas fa-envelope text-blue-600 mr-2"></i>
+                            <a href="mailto:suporte@sistema.com" class="text-blue-600 hover:underline">suporte@sistema.com</a>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-book text-blue-600 mr-2"></i>
+                            <a href="#" class="text-blue-600 hover:underline">Documentação Completa</a>
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Adicionar animações suaves ao scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
