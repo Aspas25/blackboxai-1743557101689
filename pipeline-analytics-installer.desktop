@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Pipeline Analytics Installer
+Comment=Instalador do Pipeline Analytics para Wix
+Exec=bash -c "cd /project/sandbox/user-workspace && ./install_wix_app.sh"
+Icon=system-software-install
+Terminal=true
+Categories=Development;WebDevelopment;
+Keywords=wix;pipeline;analytics;installer
