@@ -1,0 +1,143 @@
+/* Kanban Board Styles */
+.kanban-column {
+    min-height: 500px;
+    transition: background-color 0.2s ease;
+}
+
+.kanban-column.drag-over {
+    background-color: #f3f4f6;
+}
+
+.card-ghost {
+    opacity: 0.5;
+    background: #f9fafb;
+}
+
+/* Notification Badge Animation */
+@keyframes notification-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.notification-badge {
+    animation: notification-pulse 0.5s ease;
+}
+
+/* Modal Backdrop */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.show {
+    opacity: 1;
+}
+
+.modal-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+.modal-backdrop.show .modal-content {
+    transform: translateY(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+/* Role-based UI Elements */
+.role-admin [data-admin-only] {
+    display: block;
+}
+
+.role-corretor [data-corretor-only] {
+    display: block;
+}
+
+.role-angariador [data-angariador-only] {
+    display: block;
+}
+
+[data-admin-only],
+[data-corretor-only],
+[data-angariador-only] {
+    display: none;
+}
+
+/* Metrics Cards */
+.metric-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Card Styles */
+.kanban-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: grab;
+}
+
+.kanban-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.kanban-card:active {
+    cursor: grabbing;
+}
+
+/* Status Colors */
+.status-prospeccao { border-left: 4px solid #3B82F6; }
+.status-negociacao { border-left: 4px solid #F59E0B; }
+.status-fechamento { border-left: 4px solid #10B981; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid-cols-1 {
+        grid-template-columns: 1fr;
+    }
+    
+    .metric-card {
+        margin-bottom: 1rem;
+    }
+    
+    .kanban-column {
+        margin-bottom: 2rem;
+    }
+}
