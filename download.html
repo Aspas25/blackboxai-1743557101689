@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download e Instalação</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-50 font-['Inter']">
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-xl p-8 max-w-2xl w-full">
+            <div class="text-center mb-8">
+                <i class="fab fa-wix text-6xl text-blue-600 mb-4"></i>
+                <h1 class="text-3xl font-bold text-gray-800 mb-2">Pipeline Analytics para Wix</h1>
+                <p class="text-gray-600">Instale nosso app para gerenciar seu pipeline de vendas</p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Download Button -->
+                <div class="text-center">
+                    <a href="downloads/pipeline-app.zip" 
+                       class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-200 mb-4">
+                        <i class="fas fa-download mr-2"></i>
+                        Download do App
+                    </a>
+                    <p class="text-sm text-gray-500">Versão 1.0.0</p>
+                </div>
+
+                <!-- Installation Link -->
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h2 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-link text-blue-600 mr-2"></i>
+                        Link de Instalação
+                    </h2>
+                    <div class="bg-white p-3 rounded border flex items-center justify-between">
+                        <code class="text-sm text-gray-600">https://www.wix.com/app-market/pipeline-analytics</code>
+                        <button onclick="copyToClipboard('https://www.wix.com/app-market/pipeline-analytics')" 
+                                class="text-blue-600 hover:text-blue-700 p-2">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="wix_installation.html" 
+                       class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-200">
+                        <i class="fas fa-book-open text-blue-600 mr-3"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Manual de Instalação</h3>
+                            <p class="text-sm text-gray-600">Guia passo a passo</p>
+                        </div>
+                    </a>
+                    <a href="mailto:suporte@sistema.com" 
+                       class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-200">
+                        <i class="fas fa-headset text-blue-600 mr-3"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Suporte Técnico</h3>
+                            <p class="text-sm text-gray-600">Precisa de ajuda?</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- System Requirements -->
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-gray-700 mb-2">Requisitos do Sistema</h3>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Conta Wix Business ou eCommerce
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Navegador moderno (Chrome, Firefox, Safari)
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Permissões de administrador no Wix
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Link copiado para a área de transferência!');
+            }).catch(err => {
+                console.error('Erro ao copiar:', err);
+            });
+        }
+    </script>
+</body>
+</html>
