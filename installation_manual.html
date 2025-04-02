@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Instalação</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-4">
+                <i class="fas fa-tools mr-2"></i>Manual de Instalação
+            </h1>
+
+            <div class="space-y-6">
+                <section class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                    <h2 class="text-xl font-semibold text-blue-800 mb-3">
+                        <i class="fas fa-list-check mr-2"></i>Pré-requisitos
+                    </h2>
+                    <ul class="list-disc list-inside space-y-2 text-gray-600 ml-4">
+                        <li>Node.js (versão 14 ou superior)</li>
+                        <li>NPM (Node Package Manager)</li>
+                        <li>Navegador web moderno (Chrome, Firefox, Safari ou Edge)</li>
+                    </ul>
+                </section>
+
+                <section class="space-y-4">
+                    <h2 class="text-xl font-semibold text-gray-800">
+                        <i class="fas fa-download mr-2"></i>Instalação do Sistema
+                    </h2>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg border">
+                        <h3 class="font-semibold text-gray-700 mb-2">1. Clone o Repositório</h3>
+                        <div class="bg-gray-800 text-white p-3 rounded-md font-mono text-sm">
+                            git clone [URL_DO_REPOSITÓRIO]<br>
+                            cd [NOME_DO_DIRETÓRIO]
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-lg border">
+                        <h3 class="font-semibold text-gray-700 mb-2">2. Instale as Dependências</h3>
+                        <div class="bg-gray-800 text-white p-3 rounded-md font-mono text-sm">
+                            npm install
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-lg border">
+                        <h3 class="font-semibold text-gray-700 mb-2">3. Configure o Ambiente</h3>
+                        <p class="text-gray-600 mb-2">Crie um arquivo .env na raiz do projeto:</p>
+                        <div class="bg-gray-800 text-white p-3 rounded-md font-mono text-sm">
+                            PORT=8000<br>
+                            NODE_ENV=development<br>
+                            JWT_SECRET=seu_jwt_secret
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-lg border">
+                        <h3 class="font-semibold text-gray-700 mb-2">4. Inicie o Servidor</h3>
+                        <div class="bg-gray-800 text-white p-3 rounded-md font-mono text-sm">
+                            npm start
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                    <h2 class="text-xl font-semibold text-yellow-800 mb-3">
+                        <i class="fas fa-chart-line mr-2"></i>Configuração do Pipeline Analytics
+                    </h2>
+                    
+                    <div class="space-y-4">
+                        <h3 class="font-semibold text-gray-700">Estrutura do Pipeline</h3>
+                        <p class="text-gray-600">O sistema de analytics está integrado com o seguinte pipeline de dados:</p>
+                        
+                        <div class="bg-white p-4 rounded-lg border">
+                            <h4 class="font-medium text-gray-700 mb-2">1. Coleta de Dados</h4>
+                            <ul class="list-disc list-inside text-gray-600 ml-4">
+                                <li>Dados são coletados através da API REST</li>
+                                <li>Endpoints principais:
+                                    <ul class="list-disc list-inside ml-6">
+                                        <li>/api/cards/month/:month - Dados mensais</li>
+                                        <li>/api/cards - Todos os cards</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg border">
+                            <h4 class="font-medium text-gray-700 mb-2">2. Processamento</h4>
+                            <ul class="list-disc list-inside text-gray-600 ml-4">
+                                <li>Agregação de dados por período</li>
+                                <li>Cálculo de métricas:
+                                    <ul class="list-disc list-inside ml-6">
+                                        <li>Total de oportunidades</li>
+                                        <li>Valor médio mensal</li>
+                                        <li>Taxa de crescimento</li>
+                                        <li>Taxa de conversão</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg border">
+                            <h4 class="font-medium text-gray-700 mb-2">3. Visualização</h4>
+                            <ul class="list-disc list-inside text-gray-600 ml-4">
+                                <li>Gráficos interativos usando Chart.js</li>
+                                <li>Dashboards personalizáveis</li>
+                                <li>Filtros dinâmicos por:
+                                    <ul class="list-disc list-inside ml-6">
+                                        <li>Período</li>
+                                        <li>Produto</li>
+                                        <li>Agência</li>
+                                        <li>Responsável</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-green-50 p-4 rounded-lg border border-green-200">
+                    <h2 class="text-xl font-semibold text-green-800 mb-3">
+                        <i class="fas fa-check-circle mr-2"></i>Verificação da Instalação
+                    </h2>
+                    <ol class="list-decimal list-inside space-y-2 text-gray-600 ml-4">
+                        <li>Acesse http://localhost:8000 no navegador</li>
+                        <li>Faça login com as credenciais de administrador:
+                            <ul class="list-disc list-inside ml-6 mt-2">
+                                <li>Email: admin@sistema.com</li>
+                                <li>Senha: admin123</li>
+                            </ul>
+                        </li>
+                        <li>Verifique se o dashboard está carregando corretamente</li>
+                        <li>Teste a geração de relatórios analytics</li>
+                    </ol>
+                </section>
+
+                <section class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <h2 class="text-xl font-semibold text-red-800 mb-3">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>Solução de Problemas
+                    </h2>
+                    <div class="space-y-3">
+                        <p class="font-medium">Erro de Conexão com o Servidor:</p>
+                        <ul class="list-disc list-inside text-gray-600 ml-4">
+                            <li>Verifique se a porta 8000 está disponível</li>
+                            <li>Certifique-se que o Node.js está instalado corretamente</li>
+                            <li>Verifique os logs do servidor no terminal</li>
+                        </ul>
+
+                        <p class="font-medium mt-4">Problemas com Analytics:</p>
+                        <ul class="list-disc list-inside text-gray-600 ml-4">
+                            <li>Verifique a conexão com a API</li>
+                            <li>Limpe o cache do navegador</li>
+                            <li>Consulte os logs do console do navegador</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="bg-gray-50 p-4 rounded-lg border">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-3">
+                        <i class="fas fa-headset mr-2"></i>Suporte
+                    </h2>
+                    <p class="text-gray-600">
+                        Para suporte na instalação ou problemas técnicos, entre em contato através do email: suporte@sistema.com
+                    </p>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
