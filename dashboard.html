@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipeline de Vendas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div id="logoContainer" class="h-10 w-32 flex items-center">
+                    <a href="/analytics.html" class="text-blue-600 hover:text-blue-800">Analytics</a>
+                        <h1 class="text-2xl font-bold text-gray-900">Pipeline de Vendas</h1>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button class="relative">
+                            <i class="fas fa-bell text-gray-600 text-xl"></i>
+                            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">2</span>
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-gray-700" id="userName">Admin</span>
+                        <img class="h-8 w-8 rounded-full" id="userAvatar" 
+                             src="https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff" 
+                             alt="Admin">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Filtros e Métricas -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Campo de busca será inserido aqui pelo filters.js -->
+                
+                <!-- Filtros -->
+                <select id="agency" class="form-select rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                    <option value="all">Todas as Agências</option>
+                </select>
+                <select id="product" class="form-select rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                    <option value="all">Todos os Produtos</option>
+                </select>
+                <select id="status" class="form-select rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+                    <option value="all">Todos os Status</option>
+                    <option value="prospeccao">Prospecção</option>
+                    <option value="negociacao">Negociação</option>
+                    <option value="fechamento">Fechamento</option>
+                </select>
+                <div class="flex space-x-2">
+                    <button id="clearFilters" 
+                            onclick="filterSystem.clearFilters()"
+                            class="px-4 py-2 text-sm text-gray-600 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        <i class="fas fa-undo-alt mr-1"></i> Limpar Filtros
+                    </button>
+                    <button id="exportData" 
+                            class="px-4 py-2 text-sm text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        <i class="fas fa-download mr-1"></i> Exportar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-sm font-medium text-gray-500 mb-2">Prospecção</h3>
+                <div id="prospeccao-metrics">
+                    <p class="text-3xl font-bold text-blue-600">R$ 0,00</p>
+                    <p class="text-sm text-gray-600">0 oportunidades</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-sm font-medium text-gray-500 mb-2">Negociação</h3>
+                <div id="negociacao-metrics">
+                    <p class="text-3xl font-bold text-yellow-600">R$ 0,00</p>
+                    <p class="text-sm text-gray-600">0 oportunidades</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-sm font-medium text-gray-500 mb-2">Fechamento</h3>
+                <div id="fechamento-metrics">
+                    <p class="text-3xl font-bold text-green-600">R$ 0,00</p>
+                    <p class="text-sm text-gray-600">0 oportunidades</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-sm font-medium text-gray-500 mb-2">Total</h3>
+                <div id="total-metrics">
+                    <p class="text-3xl font-bold text-gray-900">R$ 0,00</p>
+                    <p class="text-sm text-gray-600">0 oportunidades</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kanban Board -->
+        <div class="mb-6">
+            <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center space-x-4">
+                    <h2 class="text-xl font-semibold text-gray-900">Pipeline do Mês</h2>
+                    <select id="monthSelector" class="ml-4 px-3 py-1 border border-gray-300 rounded-md text-sm">
+                        <!-- Month options will be added by JavaScript -->
+                    </select>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="prevMonth" class="text-gray-600 hover:text-gray-800">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <span id="currentMonthDisplay" class="text-lg font-medium"></span>
+                    <button id="nextMonth" class="text-gray-600 hover:text-gray-800">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Prospecção -->
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-semibold text-gray-900">Prospecção</h3>
+                        <span class="text-sm text-gray-600" id="prospeccao-count">0 cards</span>
+                    </div>
+                    <div id="prospeccao" class="kanban-column bg-gray-100 p-4 rounded-lg min-h-[200px]" 
+                         data-status="prospeccao">
+                        <!-- Cards serão inseridos aqui -->
+                    </div>
+                </div>
+
+                <!-- Negociação -->
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-semibold text-gray-900">Negociação</h3>
+                        <span class="text-sm text-gray-600" id="negociacao-count">0 cards</span>
+                    </div>
+                    <div id="negociacao" class="kanban-column bg-gray-100 p-4 rounded-lg min-h-[200px]" 
+                         data-status="negociacao">
+                        <!-- Cards serão inseridos aqui -->
+                    </div>
+                </div>
+
+                <!-- Fechamento -->
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-semibold text-gray-900">Fechamento</h3>
+                        <span class="text-sm text-gray-600" id="fechamento-count">0 cards</span>
+                    </div>
+                    <div id="fechamento" class="kanban-column bg-gray-100 p-4 rounded-lg min-h-[200px]" 
+                         data-status="fechamento">
+                        <!-- Cards serão inseridos aqui -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão Adicionar -->
+    <button onclick="cardModal.open()" class="fixed bottom-4 right-4 bg-blue-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+        <i class="fas fa-plus text-xl"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+    
+    <!-- Core Scripts -->
+    <script src="/js/utils.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/notifications.js"></script>
+    <script src="/js/filters.js"></script>
+    <script src="/js/export.js"></script>
+    <script src="/js/calendar.js"></script>
+    <script src="/js/modal.js"></script>
+    <script src="/js/kanban.js"></script>
+    
+    <script>
+        // Load admin features if user is admin
+        const user = auth.getCurrentUser();
+        if (user?.role === 'admin' && !window.adminSystem) {
+            const adminScript = document.createElement('script');
+            adminScript.src = '/js/admin.js';
+            document.body.appendChild(adminScript);
+        }
+    </script>
+</body>
+</html>
